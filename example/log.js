@@ -6,7 +6,11 @@ const config = {
   label: 'test'
 }
 
-Log(config).info('Message example')
-Log(config).info('Message example with object as second argument', { payload: ['content on array'] })
-Log(config).info({ message: 'Message example passing through object ' })
-Log(config).info({ message: 'Message example passing through object with payload', payload: ['content on array'] })
+
+const logger = Log(config);
+
+logger.info( {payload: ['content on array'] })
+logger.info('Message example with object as second argument', { payload: ['content on array'] })
+logger.info({ message: 'Message example passing through object ' }, { payload: ['content on array'] })
+logger.info({ message: 'Message example passing through object ' })
+logger.info({ message: 'Message example passing through object with payload', payload: ['content on array'] })
