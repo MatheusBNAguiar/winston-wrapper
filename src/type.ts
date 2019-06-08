@@ -1,4 +1,4 @@
-import { LoggerOptions } from "winston";
+import { LoggerOptions, Logger } from "winston";
 
 export interface LogTransporters {
   date: boolean;
@@ -7,7 +7,7 @@ export interface LogTransporters {
 }
 
 export interface LogConfig {
-  baseDirectory: string ;
+  baseDirectory: string;
   label: string;
   infoLevel?: string;
   transporters: LogTransporters;
@@ -16,3 +16,7 @@ export interface LogConfig {
 export interface LogSetter {
   (LoggerOptions: LoggerOptions, logConfig: LogConfig): LoggerOptions;
 };
+
+export interface LogContainer {
+  [key: string]: Logger;
+}
